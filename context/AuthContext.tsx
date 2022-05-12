@@ -1,3 +1,11 @@
+import React from 'react';
+
+const AuthContext:React.FC = () => {
+    
+    return <div>Have a good coding</div>
+}
+export default AuthContext;
+
 // import { createContext, useContext, ReactNode, useState } from "react";
 
 // type authContextType = {
