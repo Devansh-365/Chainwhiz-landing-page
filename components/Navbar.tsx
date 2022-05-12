@@ -1,7 +1,8 @@
-import { useColorMode, useDisclosure, Box, useColorModeValue, Flex, Stack, Button, Menu, MenuButton, Avatar, MenuList, Center, MenuDivider, MenuItem, HStack, Link, Image, StackDivider } from '@chakra-ui/react';
+import { useColorMode, Box, useColorModeValue, Flex, Stack, Button, Menu, MenuButton, Avatar, MenuList, Center, MenuDivider, MenuItem, HStack, Link, Image } from '@chakra-ui/react';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import React, { ReactNode } from 'react';
 import { useAddress, useDisconnect, useMetamask } from '@thirdweb-dev/react'
+// import { useAuth } from '../context/AuthContext';
 
 const Links = ['Post a Bounty', 'Solve a Bounty', 'Vote a Solutions'];
 
@@ -25,10 +26,10 @@ const Navbar:React.FC = () => {
     const address = useAddress();
     const disconnect = useDisconnect()
 
+
     const { colorMode, toggleColorMode } = useColorMode();
-    const { isOpen, onOpen, onClose } = useDisclosure();
     return (
-    < >
+    <>
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <Box>

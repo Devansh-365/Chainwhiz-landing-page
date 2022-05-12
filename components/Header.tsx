@@ -1,4 +1,4 @@
-import { Container, Stack, Heading, Button, Flex, Text, Link } from '@chakra-ui/react';
+import { Container, Stack, Heading, Button, Flex, Text, Link, useBreakpointValue, } from '@chakra-ui/react';
 import React from 'react';
 
 
@@ -11,14 +11,25 @@ const Header:React.FC = () => {
             align={'center'}
             spacing={{ base: 8, md: 10 }}
             py={{ base: 20, md: 28 }}>
-            <Heading
-              w='calc(80vw)'
-              fontWeight={600}
-              fontSize={{ base: '4xl', sm: '6xl', md: '7xl' }}
-              lineHeight={'110%'}>
-              Kickstart Your Journey in{' '}
+            <Heading fontSize={{ base: '4xl', md: '5xl', lg: '7xl' }} w='calc(80vw)'>
+            <Text
+              as={'span'}
+              position={'relative'}
+              _after={{
+                content: "''",
+                width: 'full',
+                height: useBreakpointValue({ base: '20%', md: '30%' }),
+                position: 'absolute',
+                bottom: -1,
+                left: 0,
+                bg: '#d4ff1e',
+                zIndex: -1,
+              }}>
+              Kickstart Your Journey
+            </Text>
+            <br />{' '}
               <Text as={'span'} color={'#d4ff1e'}>
-                Web3
+                In Web3
               </Text>
             </Heading>
             <Text color={'gray.500'} maxW={'3xl'} fontSize='20px'>
