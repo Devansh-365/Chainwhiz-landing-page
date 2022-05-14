@@ -11,7 +11,7 @@ const Header:React.FC = () => {
             align={'center'}
             spacing={{ base: 8, md: 10 }}
             py={{ base: 20, md: 28 }}>
-            <Heading fontSize={{ base: '4xl', md: '5xl', lg: '7xl' }} w='calc(80vw)'>
+            <Heading fontSize={{ base: '3xl', md: '5xl', lg: '7xl' }} w='calc(80vw)'>
             <Text
               as={'span'}
               position={'relative'}
