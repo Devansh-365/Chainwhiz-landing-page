@@ -1,6 +1,6 @@
 import { useColorMode, Box, useColorModeValue, Flex, Stack, Button, Menu, MenuButton, Avatar, MenuList, Center, MenuDivider, MenuItem, HStack, Link, Image } from '@chakra-ui/react';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import { useAddress, useDisconnect, useMetamask } from '@thirdweb-dev/react'
 // import { useAuth } from '../context/AuthContext';
 
@@ -22,10 +22,23 @@ const NavLink = ({ children }: { children: ReactNode }) => (
 
 const Navbar:React.FC = () => {
 
+    const [sprite, setSprite] = useState("human");
+    const [seed, setSeed] = useState(Math.floor(Math.random() * 1000));
+      
+    // Function to set the current sprite type
+    function handleSprite(spritetype: string) {
+        setSprite(spritetype);
+    }
+      
+    // Function to generate random seeds for the API
+    function handleGenerate() {
+        let x = Math.floor(Math.random() * 1000);
+        setSeed(x);
+    }
+
     const connectWithMetamask = useMetamask()  
     const address = useAddress();
     const disconnect = useDisconnect()
-
 
     const { colorMode, toggleColorMode } = useColorMode();
     return (
@@ -77,7 +90,7 @@ const Navbar:React.FC = () => {
                   minW={0}>
                   <Avatar
                     size={'sm'}
-                    src={'https://i.pinimg.com/originals/fb/ed/74/fbed74e39cad50a346123cba803bd099.jpg'}
+                    src={`https://avatars.dicebear.com/api/${sprite}/${seed}.svg`}
                   />
                 </MenuButton>
                 <MenuList alignItems={'center'}>
@@ -85,7 +98,7 @@ const Navbar:React.FC = () => {
                   <Center>
                     <Avatar
                       size={'2xl'}
-                      src={'https://i.pinimg.com/originals/fb/ed/74/fbed74e39cad50a346123cba803bd099.jpg'}
+                      src={`https://avatars.dicebear.com/api/${sprite}/${seed}.svg`}
                     />
                   </Center>
                   <br />
@@ -94,7 +107,7 @@ const Navbar:React.FC = () => {
                   </Center>
                   <br />
                   <MenuDivider />
-                  <MenuItem>Change Avatar</MenuItem>
+                  <MenuItem onClick={() => handleGenerate()}>Change Avatar</MenuItem>
                   <MenuItem>Account Settings</MenuItem>
                   <MenuItem onClick={() => disconnect()}>Logout</MenuItem>
                 </MenuList>

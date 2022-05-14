@@ -3,7 +3,11 @@ import React from 'react';
 import Footer from './Footer';
 import Navbar from './Navbar';
 
-const Layout:React.FC = ({ children }: React.PropsWithChildren<Record<never, any>>) => {
+type LayoutProps = {
+    children: React.ReactNode,
+  };
+
+const Layout = ({ children }: LayoutProps) => {
     
     return (
         <div>

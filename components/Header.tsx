@@ -2,7 +2,7 @@ import { Container, Stack, Heading, Button, Flex, Text, Link, useBreakpointValue
 import React from 'react';
 
 
-const Header:React.FC = () => {  
+const Header:React.FC = () => {
 
     return (
         <Container width="100%" h='calc(100vh)'>
